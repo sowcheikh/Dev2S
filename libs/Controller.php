@@ -18,4 +18,5 @@ class Controller{
            $content_for_layout=ob_get_clean();
           require_once($pathLayout);
     }
+    
 }

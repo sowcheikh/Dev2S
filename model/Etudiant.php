@@ -1,15 +1,29 @@
 <?php
 
-class Etudiant {
+class Etudiant implements IModel {
+    protected $id;
     protected $matricule;
     protected $nom;
     protected $prenom;
     protected $email;
     protected $phone;
-    protected $date_naissance;
+    protected $datenaissance;
     protected $type;
 
-    
+    public function __construct($row = null){
+        if($row != null){
+            $this->hydrate($row);
+        }
+    }
+
+    public function hydrate($row){
+        $this->nom = $row["nom"];
+        $this->prenom = $row["prenom"];
+        $this->email = $row["email"];
+        $this->phone = $row["phone"];
+        $this->matricule = $row["matricule"];
+        $this->datenaissance = $row["datenaissance"];
+    }
 
     /**
      * Get the value of matricule
@@ -114,9 +128,9 @@ class Etudiant {
     /**
      * Get the value of date_naissance
      */ 
-    public function getDate_naissance()
+    public function getDatenaissance()
     {
-        return $this->date_naissance;
+        return $this->datenaissance;
     }
 
     /**
@@ -124,9 +138,9 @@ class Etudiant {
      *
      * @return  self
      */ 
-    public function setDate_naissance($date_naissance)
+    public function setDatenaissance($datenaissance)
     {
-        $this->date_naissance = $date_naissance;
+        $this->datenaissance = $datenaissance;
 
         return $this;
     }
@@ -147,6 +161,26 @@ class Etudiant {
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

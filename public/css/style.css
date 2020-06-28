@@ -1,7 +1,10 @@
-/* body {
-    height: 400px;
-    background-image: url('../img/bg-01.jpg');
-} */
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+body {
+    overflow: auto;
+}
 
 #cover {
     background-image: url('../img/bg-01.jpg');
