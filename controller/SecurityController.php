@@ -15,7 +15,7 @@ class SecurityController extends Controller{
     }
     //Use Case
    public function login(){
-      
+
       if(isset($_POST['btn_connexion'])){
          extract($_POST);
          $this->dao=new AdminDao();
@@ -48,10 +48,6 @@ class SecurityController extends Controller{
    }
 
    public function logout(){
-       
-   }
-
-   public function addStudent(){
        
    }
 

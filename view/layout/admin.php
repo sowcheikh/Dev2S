@@ -13,7 +13,7 @@
     <title>Admin</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" data-toggle="affix">
     <a href="#" class="navbar-brand">DEVSA2S</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Etudiant</a>
+                <a href="#" class="nav-link active dropdown-toggle" data-toggle="dropdown">Etudiant</a>
                 <div class="dropdown-menu">
                     <a href="<?=BASE_URL?>/admin/saveStudent" class="dropdown-item">Enregistrer étudiant</a>
                     <a href="<?=BASE_URL?>/admin/listStudent" class="dropdown-item">lister étudiant</a>
@@ -36,20 +36,16 @@
                 </div>
             </div>
         </div>
-        <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Rechercher</button>
-  </form>
         <div class="navbar-nav">
             <a href="#" class="nav-item nav-link">Se déconnecter</a>
         </div>
     </div>
 </nav>
-<section id="cover" class="min-vh-100 pb-5">
+<section id="cover" class="min-vh-100 pt-5">
 <?php echo  $content_for_layout?>
 </section>
 <!-- JS, Popper.js, and jQuery -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="<?=BASE_URL?>/public/js/script.js"></script>
 </body>

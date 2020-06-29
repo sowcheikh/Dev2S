@@ -11,7 +11,7 @@ class ChambreDao extends Manager {
        return $this->executeUpdate($sql, $obj);
     }
     public function update($obj){
-
+        
     }
    
 

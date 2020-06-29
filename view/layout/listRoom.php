@@ -27,7 +27,28 @@
     <tr>
       <th scope="row">003-0013</th>
       <td>B3</td>
+      <td>Double</td>
+      <td><button class="btn btn-primary edit">modifier</button></td>
+      <td><button class="btn btn-danger delete">supprimer</button></td>
+    </tr>
+    <tr>
+      <th scope="row">003-0014</th>
+      <td>B3</td>
       <td>individuelle</td>
+      <td><button class="btn btn-primary edit">modifier</button></td>
+      <td><button class="btn btn-danger delete">supprimer</button></td>
+    </tr>
+    <tr>
+      <th scope="row">003-0015</th>
+      <td>B4</td>
+      <td>individuelle</td>
+      <td><button class="btn btn-primary edit">modifier</button></td>
+      <td><button class="btn btn-danger delete">supprimer</button></td>
+    </tr>
+    <tr>
+      <th scope="row">003-0016</th>
+      <td>B4</td>
+      <td>Double</td>
       <td><button class="btn btn-primary edit">modifier</button></td>
       <td><button class="btn btn-danger delete">supprimer</button></td>
     </tr>

@@ -66,5 +66,19 @@ public function delete($id){
     return $this->executeUpdate($sql)!=0;
 }
 
+public function addEtudiant($sql,$matricule,$prenom,$nom,$email,$date,$adresse,$tel,$type,$numChambre,$bourse){
+    $this->getConnexion();
+    $req= $this->pdo->prepare($sql);
+    $req->execute(array($matricule,$prenom,$nom,$email,$tel,$date,$adresse,$type,$numChambre,$bourse));
+    $this->closeConnexion();
+}
+
+public function findByMatricule($matricule){
+    $sql="select * from $this->tableName where matricule=$matricule ";
+    $data=$this->executeSelect($sql);
+    return count($data)==1?$data[0]:$data;
+
+}
+
     
 }

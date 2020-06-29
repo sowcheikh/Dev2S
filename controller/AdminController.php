@@ -12,6 +12,36 @@ class AdminController extends Controller {
         $this->view="listRoom";
          $this->render();
     }
+    public function search($obj)
+    {
+        
+        $matricule = $obj->getMatricule();
+        $type = $obj->getType();
+        $bourse = null;
+        $numch = null;
+        if (isset($_POST['rechercher'])) {
+            extract($_POST);
+            $this->dao=new EtudiantDao();
+            if (isset($_POST['select'])) {
+                //validation
+            $this->validator->isVide($select,"select","veuillez choisir une option");
+            $this->validator->isVide($myInput,"myInput","veuillez enter votre recherche");
+            if ($this->validator->isValid()) {
+               if ($_POST['select']=='matricule') {
+                return $this->dao->findByMatricule($matricule);
+               } elseif ($_POST['select']=='numch') {
+                return $this->dao->findByNumch($numch);
+               } elseif ($_POST['select']=='loge') {
+                /////////
+               } elseif ($_POST['select']=='non_loge') {
+                   # code...
+               } else {
+                   echo 'ce choix n\'existe pas!!';
+               }
+            }
+            }
+        }
+    }
 
     public function addRoom() {
         $resp =[];
@@ -43,12 +73,14 @@ class AdminController extends Controller {
          $this->render();
     }
     public function showStudent() {
+        if(isset($_POST["action"]))
+        {
         $this->dao = new EtudiantDao;
       $data =  $this->dao->findAll();
       $output = '';
       $output .= '
-      <table class="table">
-  <thead class="thead-dark">
+      <table class="table overflow-auto" id="myTable">
+  <thead class="thead-light">
     <tr>
       <th scope="col">Matricule</th>
       <th scope="col">Prénom</th>
@@ -69,12 +101,12 @@ class AdminController extends Controller {
         $output .= '
         <tr>
       <th scope="row">'.$row->getMatricule().'</th>
-      <td>'.$row->getNom().'</td>
       <td>'.$row->getPrenom().'</td>
+      <td>'.$row->getNom().'</td>
       <td>'.$row->getEmail().'do</td>
       <td>'.$row->getPhone().'</td>
       <td>'.$row->getDatenaissance().'</td>
-      <td><button type="button" id="'.$row->getId().'" class="btn btn-primary btn-xs update">Modifier</button></td>
+      <td><button type="button" id="'.$row->getId().'" class="btn btn-secondary btn-xs update">Modifier</button></td>
       <td><button type="button" id="'.$row->getId().'" class="btn btn-danger btn-xs delete">Supprimer</button></td>
     </tr>
         ';
@@ -91,6 +123,41 @@ class AdminController extends Controller {
       $output .= '  </tbody>
       </table>';
       echo $output;
+    }
+    }
+
+    public function updateStudent() {
+        $this->view="student";
+        if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is set to not
+{
+        $this->dao = new EtudiantDao;
+        
+        if($_POST["action"] == "Modifier")
+        {
+            $data =  $this->dao->update($objet=null);
+            if(!empty($data))
+            {
+             echo 'Données mises à jour';
+            }
+         
+        }
+    }
+    }
+
+    public function deleteStuent(){
+        $this->view="student";
+        if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is set to not
+{
+        $this->dao = new EtudiantDao;
+        if($_POST["action"] == "Supprimer")
+        {
+            $data =  $this->dao->delete($obj=null);
+         if(!empty($data))
+         {
+          echo 'Données supprimées';
+         }
+        }
+    }
     }
 
     public function saveStudent() {
@@ -113,5 +180,4 @@ class AdminController extends Controller {
         }
         $serieNombre =  random_1(4);
     }
-
 }
